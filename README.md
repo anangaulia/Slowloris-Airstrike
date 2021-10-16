@@ -9,3 +9,7 @@ sudo apt install hping3 -y && git clone https://github.com/The-Memzer/Slowloris-
 Why it is better than other ddos tools:
  
 Despite not using special bots or servers, this uses threading to completely push over the limits of your computer. It also uses spoofed ips so blocking one of them is useless, it has a cool voice and animation, and last it uses a slowloris tactic to amplify the attack by just a bit.
+ 
+V2:
+ 
+Added some options, like threads and how many packets to send.
