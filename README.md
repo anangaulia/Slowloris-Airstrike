@@ -13,3 +13,7 @@ Despite not using special bots or servers, this uses threading to completely pus
 V2:
  
 Added some options, like threads and how many packets to send.
+ 
+V3:
+ 
+Has new mode.
